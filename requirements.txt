@@ -1,0 +1,3 @@
+picamera2; platform_system == "Linux"
+pytesseract
+Pillow
