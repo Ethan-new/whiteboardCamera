@@ -22,7 +22,6 @@ from PIL import Image, ImageDraw, ImageFont
 RST_PIN = 27
 DC_PIN = 25
 BL_PIN = 18
-CS_PIN = 8
 
 WIDTH = 240
 HEIGHT = 320
@@ -35,14 +34,12 @@ class LCD2inch:
         GPIO.setup(RST_PIN, GPIO.OUT)
         GPIO.setup(DC_PIN, GPIO.OUT)
         GPIO.setup(BL_PIN, GPIO.OUT)
-        GPIO.setup(CS_PIN, GPIO.OUT)
 
         self.spi = spidev.SpiDev(0, 0)
         self.spi.max_speed_hz = 40000000
         self.spi.mode = 0b00
 
         GPIO.output(BL_PIN, GPIO.HIGH)
-        GPIO.output(CS_PIN, GPIO.LOW)
 
         self.reset()
         self.init_display()
